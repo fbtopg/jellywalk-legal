@@ -107,13 +107,14 @@ summary:focus-visible {
 }
 
 .brand-mark {
-  display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
-  color: #ffffff;
-  background: linear-gradient(145deg, #6f4dd8, var(--brand-dark));
-  border-radius: 0.75rem 0.75rem 0.75rem 0.25rem;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
+  object-fit: cover;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
   box-shadow: 0 0.5rem 1.2rem rgba(78, 45, 183, 0.2);
 }
 

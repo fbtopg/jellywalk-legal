@@ -103,7 +103,7 @@ function siteHeader(activeSlug = "") {
   return `<header class="site-header">
       <div class="shell header-inner">
         <a class="brand" href="/" aria-label="Jellywalk legal home">
-          <span class="brand-mark" aria-hidden="true">J</span>
+          <img class="brand-mark" src="/assets/jellywalk-logo.jpg" width="48" height="48" alt="">
           <span class="brand-label">Jellywalk<small>Legal center</small></span>
         </a>
         <nav class="site-nav" aria-label="Legal documents">${links}</nav>
@@ -125,7 +125,13 @@ function htmlShell({ title, description, slug = "", content }) {
     <meta property="og:description" content="${escapeHtml(description)}">
     <meta property="og:url" content="${siteOrigin}${canonicalPath}">
     <meta property="og:site_name" content="Jellywalk Legal">
+    <meta property="og:image" content="${siteOrigin}/assets/jellywalk-logo.jpg">
+    <meta property="og:image:width" content="399">
+    <meta property="og:image:height" content="399">
+    <meta property="og:image:alt" content="Jellywalk mascot logo">
     <link rel="canonical" href="${siteOrigin}${canonicalPath}">
+    <link rel="icon" type="image/jpeg" href="/assets/jellywalk-logo.jpg">
+    <link rel="apple-touch-icon" href="/assets/jellywalk-logo.jpg">
     <link rel="stylesheet" href="/assets/styles.css">
     <title>${escapeHtml(title)}</title>
   </head>
@@ -222,6 +228,7 @@ async function build() {
 
   await Promise.all([
     copyFile(path.join(projectRoot, "assets", "styles.css"), path.join(outputRoot, "assets", "styles.css")),
+    copyFile(path.join(projectRoot, "assets", "jellywalk-logo.jpg"), path.join(outputRoot, "assets", "jellywalk-logo.jpg")),
     writeFile(path.join(outputRoot, "index.html"), renderHome()),
     writeFile(path.join(outputRoot, "404.html"), renderNotFound()),
     writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${siteOrigin}/sitemap.xml\n`),

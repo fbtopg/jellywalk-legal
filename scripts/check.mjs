@@ -49,6 +49,7 @@ for (const file of pages) {
   assert(html.includes('<html lang="en">'), `${file} is missing a language declaration`);
   assert(html.includes("<main"), `${file} is missing its main landmark`);
   assert(html.includes('class="skip-link"'), `${file} is missing its skip link`);
+  assert(html.includes('/assets/jellywalk-logo.jpg'), `${file} is missing the Jellywalk logo`);
   assert(html.includes(newEmail), `${file} is missing the current contact email`);
   validateAnchors(html, file);
 }
@@ -63,7 +64,8 @@ for (const file of pages.slice(1, 3)) {
 await Promise.all([
   readFile(path.join(projectRoot, "dist/downloads/jellywalk-privacy-policy.pdf")),
   readFile(path.join(projectRoot, "dist/downloads/jellywalk-terms-of-service.pdf")),
-  readFile(path.join(projectRoot, "dist/assets/styles.css"))
+  readFile(path.join(projectRoot, "dist/assets/styles.css")),
+  readFile(path.join(projectRoot, "dist/assets/jellywalk-logo.jpg"))
 ]);
 
 console.log(`Validated ${pages.length} pages, internal anchors, source email replacement, assets, and downloads.`);
