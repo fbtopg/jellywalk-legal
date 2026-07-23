@@ -9,7 +9,7 @@
     "check": "node scripts/check.mjs"
   },
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "dependencies": {
     "markdown-it": "14.3.0"
